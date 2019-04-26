@@ -367,10 +367,10 @@ public interface BaseService<T extends BaseEntity<ID>, ID extends Serializable> 
 	 * @return
 	 * @throws Exception
 	 */
-	default PageData<T> simpleList(T temp, Pageable pageable,CallContext callContext) throws Exception {
+	default PageData<T> simpleList(T temp, Pageable pageable, CallContext callContext) throws Exception {
 		Example<T> example = Example.of(temp);
-		org.springframework.data.domain.Pageable page = new org.springframework.data.domain.PageRequest(
-				pageable.getPageNo(), pageable.getPageSize());
+		org.springframework.data.domain.Pageable page = org.springframework.data.domain.PageRequest
+				.of(pageable.getPageNo(), pageable.getPageSize());
 		Page<T> pages = getJpaRepository().findAll(example, page);
 
 		List<T> list = pages.getContent();

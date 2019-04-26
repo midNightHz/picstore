@@ -12,10 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/image")
 public class ImageController {
+	
+	
 
 	@GetMapping("/{customId}/*")
 	public void getImage(HttpServletRequest request, HttpServletResponse response,
 			@PathVariable("customId") String customId) {
+		
+		
 
 	}
 
